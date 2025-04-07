@@ -39,7 +39,7 @@ const projects = [
     technologies: ["ReactJs", "Python", "Tailwind CSS"],
     image: "/background remover.PNG",
     live: "https://background-remover-sigma.vercel.app/",
-    source: "https://github.com/anil29717/BackgroundRemover",
+    source: "https://github.com/anil29717/Portfollio.git",
   },
   {
     name: "Portfolio",
