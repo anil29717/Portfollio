@@ -1,0 +1,18 @@
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide {
+  animation-name: slide;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.group:hover .animate-slide {
+  animation-play-state: paused;
+}
