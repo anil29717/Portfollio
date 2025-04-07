@@ -46,8 +46,8 @@ const projects = [
     description: "My personal portfolio website built using React and Tailwind CSS.",
     technologies: ["React", "Vite", "Tailwind CSS"],
     image: "/portfolioimage.PNG",
-    live: "#",
-    source: "#",
+    live: "https://anilkumarportfolio.vercel.app/",
+    source: "https://github.com/anil29717/Portfollio.git",
   },
 ];
 
