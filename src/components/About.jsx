@@ -65,7 +65,7 @@ const About = () => {
                     rel="noopener noreferrer"
                     className="text-white hover:text-violet-200 transition"
                   >
-                    yourportfolio.com
+                    anilkumarportfolio.vercel.app
                   </a>
                 </div>
               </div>
