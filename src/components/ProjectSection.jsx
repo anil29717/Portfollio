@@ -10,6 +10,14 @@ const projects = [
     source: "https://github.com/anil29717/PiTutor",
   },
   {
+    name: "ChatSphere",
+    description: "A real-time chat application with user authentication and message history.",
+    technologies: ["React", "Express", "JWT", "MongoDB"],
+    image: "/chatsphere.png",
+    live: "https://chatsphereapp.vercel.app/",
+    source: "https://github.com/anil29717/ChatSphere",
+  },
+  {
     name: "FinanceBus",
     description: "A finance management app to track expenses, savings, and investments.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "GeminiAPI"],
@@ -39,15 +47,15 @@ const projects = [
     technologies: ["ReactJs", "Python", "Tailwind CSS"],
     image: "/background remover.PNG",
     live: "https://background-remover-sigma.vercel.app/",
-    source: "https://github.com/anil29717/Portfollio.git",
+    source: "https://github.com/anil29717/BackgroundRemover",
   },
   {
     name: "Portfolio",
     description: "My personal portfolio website built using React and Tailwind CSS.",
     technologies: ["React", "Vite", "Tailwind CSS"],
     image: "/portfolioimage.PNG",
-    live: "#",
-    source: "#",
+    live: "https://anilkumarportfolio.vercel.app/",
+    source: "https://github.com/anil29717/Portfollio.git",
   },
 ];
 
