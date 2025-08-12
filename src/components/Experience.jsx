@@ -7,7 +7,7 @@ const experiences = [
     company: 'Salesqueen Software Solution',
     project: 'Working with live Project',
     role: 'Full Stack Developer Intern',
-    date: 'March 2025 - ',
+    date: 'March 2025 - Present',
     description: 'Working as a Full Stack Developer at SaleQueen, handling both frontend and backend development. I use PHP (CodeIgniter 4) and MySQL for backend, and HTML, CSS, JavaScript for frontend. I manage and maintain websites, ensuring smooth performance and user-friendly design.',
     techStack: ['HTML', 'Javascript', 'Coigniter 4','React Js']
   },
