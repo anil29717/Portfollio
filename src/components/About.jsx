@@ -1,86 +1,121 @@
-import React from "react";
-import { Mail, FileText, Download, ExternalLink } from "lucide-react";
+import React, { Suspense } from "react";
+import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import Face3DScene from "./Face3D";
+
+const terminalLines = [
+  { prompt: true, text: 'cat about_me.txt' },
+  { prompt: false, text: '' },
+  { prompt: false, text: "I'm a passionate full-stack developer skilled in the" },
+  { prompt: false, text: 'MERN stack (MongoDB, Express, React, Node.js).' },
+  { prompt: false, text: 'I enjoy building modern web apps with great UI/UX' },
+  { prompt: false, text: 'and clean code. Always eager to learn and solve' },
+  { prompt: false, text: 'real-world challenges.' },
+  { prompt: false, text: '' },
+  { prompt: true, text: 'cat contact.json' },
+  { prompt: false, text: '{' },
+  { prompt: false, text: '  "email": "anilkumar.gugm@gmail.com",' },
+  { prompt: false, text: '  "portfolio": "anilkumarportfolio.vercel.app",' },
+  { prompt: false, text: '  "role": "Full Stack Developer"' },
+  { prompt: false, text: '}' },
+];
 
 const About = () => {
   return (
-    <section id="about" className="px-6 py-16 bg-gradient-to-br from-[#1a002e] to-[#2b034d] text-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-purple-200 flex items-center justify-center gap-3">
-          <span>About Me</span>
-        </h2>
+    <section id="about" className="px-6 py-24 relative overflow-hidden cyber-grid-bg">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#00f0ff]/3 rounded-full blur-[160px]" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#ff00aa]/3 rounded-full blur-[140px]" />
+      </div>
 
-        <div className="backdrop-blur-md bg-indigo-900/20 border border-violet-500/20 rounded-2xl shadow-lg p-8 flex flex-col md:flex-row items-center md:items-start gap-12 relative overflow-hidden">
-          {/* Decorative background elements */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-violet-600/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
-          
-          {/* Image (40%) */}
-          <div className="w-full md:w-2/5 flex justify-center relative z-10">
-            <div className="w-64 h-64 rounded-full relative group">
-              {/* Image container with border effects */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
-              <div className="absolute inset-2 rounded-full overflow-hidden border-2 border-violet-300/30">
-                <img
-                  src="/profile.jpg"
-                  alt="Profile"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 z-999"
-                />
-              </div>
-              {/* Glow effect */}
-              <div className="absolute -inset-3 bg-violet-500 rounded-full blur-md opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold font-['Orbitron'] text-center mb-16 tracking-wider"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="text-[#00f0ff] glow-text-pulse">ABOUT</span>
+          <span className="text-[#8888aa]"> ME</span>
+        </motion.h2>
+
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
+          {/* Interactive 3D Face */}
+          <motion.div
+            className="w-full md:w-2/5 flex justify-center"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="relative group">
+              <Suspense
+                fallback={
+                  <div className="w-56 h-56 md:w-64 md:h-64 flex items-center justify-center">
+                    <div className="w-8 h-8 border border-[#00f0ff]/30 border-t-[#00f0ff] rounded-full animate-spin" />
+                  </div>
+                }
+              >
+                <Face3DScene />
+              </Suspense>
+              {/* Glow behind face */}
+              <div className="absolute inset-0 -z-10 bg-[#00f0ff]/5 blur-2xl rounded-full group-hover:bg-[#00f0ff]/10 transition-all duration-500" />
+              {/* <p className="text-center font-['JetBrains_Mono'] text-[10px] text-[#00f0ff]/30 tracking-[0.3em] uppercase mt-2">move your mouse</p> */}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Content (60%) */}
-          <div className="w-full md:w-3/5 space-y-6 relative z-10">
-            <p className="text-lg leading-relaxed text-violet-100">
-              I'm a passionate full-stack developer skilled in the MERN stack (MongoDB, Express, React, Node.js). I enjoy building modern web apps with great UI/UX and clean code. Always eager to learn and solve real-world challenges.
-            </p>
-
-            <div className="backdrop-blur-sm bg-violet-900/20 border border-violet-500/20 rounded-lg p-4 space-y-4">
-              <div className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-violet-700/30 group-hover:bg-violet-600/50 transition-colors duration-300">
-                  <Mail className="text-violet-300" size={18} />
-                </div>
-                <div>
-                  <p className="text-violet-300 text-sm font-medium">Email</p>
-                  <a
-                    href="mailto:your.email@example.com"
-                    className="text-white hover:text-violet-200 transition"
-                  >
-                    anilkumar.gugm@gmail.com
-                  </a>
-                </div>
+          {/* Terminal card */}
+          <motion.div
+            className="w-full md:w-3/5"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="relative bg-[#0a0a18] border border-[#00f0ff]/15 rounded-lg overflow-hidden scanlines">
+              {/* Terminal header */}
+              <div className="flex items-center gap-2 px-4 py-2.5 bg-[#0f0f20] border-b border-[#00f0ff]/10">
+                <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                <span className="ml-3 font-['JetBrains_Mono'] text-xs text-[#8888aa] tracking-wider">about_anil.sh — bash</span>
               </div>
-              
-              <div className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-violet-700/30 group-hover:bg-violet-600/50 transition-colors duration-300">
-                  <ExternalLink className="text-violet-300" size={18} />
-                </div>
-                <div>
-                  <p className="text-violet-300 text-sm font-medium">Portfolio</p>
+
+              {/* Terminal body */}
+              <div className="p-5 font-['JetBrains_Mono'] text-sm leading-relaxed space-y-0.5 max-h-[380px] overflow-y-auto">
+                {terminalLines.map((line, i) => (
+                  <div key={i} className="flex">
+                    {line.prompt && (
+                      <span className="text-[#00ff88] mr-2 select-none shrink-0">
+                        <span className="text-[#ff00aa]">anil</span>
+                        <span className="text-[#8888aa]">@</span>
+                        <span className="text-[#00f0ff]">dev</span>
+                        <span className="text-[#8888aa]">:~$</span>
+                      </span>
+                    )}
+                    <span className={line.prompt ? 'text-[#e0e0ff]' : 'text-[#8888aa]'}>
+                      {line.text}
+                    </span>
+                  </div>
+                ))}
+                <div className="flex items-center mt-3 pt-3 border-t border-[#00f0ff]/10">
+                  <span className="text-[#ff00aa] mr-2 select-none">anil</span>
+                  <span className="text-[#8888aa] mr-2 select-none">@dev:~$</span>
                   <a
-                    href="https://yourportfolio.com"
+                    href="https://drive.google.com/file/d/1XycseD0lzRC8-nweO0EqiPPqXp-bbzPD/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-violet-200 transition"
+                    className="inline-flex items-center gap-2 text-[#00f0ff] hover:text-[#00ff88] transition-colors group"
                   >
-                    anilkumarportfolio.vercel.app
+                    <span>./download_resume.exe</span>
+                    <Download size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+                    <span className="inline-block w-2 h-4 bg-[#00f0ff] animate-pulse" />
                   </a>
                 </div>
               </div>
             </div>
-
-            <a
-              href="https://drive.google.com/file/d/1kcR2bGaJLZILOQONFC9buixMX5WoxMxa/view?usp=drivesdk" target="_blank"
-              download
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-violet-500/20 group"
-            >
-              <FileText size={18} />
-              <span>Download Resume</span>
-              <Download size={16} className="ml-1 opacity-70 group-hover:opacity-100 group-hover:translate-y-0.5 transition-all duration-300" />
-            </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

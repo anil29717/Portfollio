@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { GraduationCap, Calendar, BookOpen, School, PercentIcon } from "lucide-react";
 
 const educationData = [
@@ -22,82 +23,100 @@ const educationData = [
   },
 ];
 
-const EducationSection = () => {
+const EducationCard = ({ edu, index }) => {
+  const isLeft = index % 2 === 0;
+
   return (
-    <section className="bg-gradient-to-br from-[#1a002e] to-[#2b034d] text-white py-12 px-4" id="education">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-purple-200 flex items-center justify-center gap-2">
-          <GraduationCap className="text-violet-300" size={28} />
-          <span>Education</span>
-        </h2>
+    <div className="relative flex flex-col md:flex-row">
+      {/* Mobile */}
+      <motion.div
+        className="md:hidden w-full bg-[#0a0a1a] border border-[#00f0ff]/10 p-5 hud-card hover:border-[#00f0ff]/30 hover:shadow-[0_0_15px_rgba(0,240,255,0.08)] transition-all duration-400"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.15 }}
+      >
+        <CardContent edu={edu} index={index} />
+      </motion.div>
 
-        {/* Timeline container */}
-        <div className="relative">
-          {/* The vertical timeline line */}
-          <div className="absolute hidden md:block h-full top-0 left-1/2 w-0.5 -translate-x-1/2 bg-gradient-to-b from-violet-400 via-fuchsia-500 to-indigo-500"></div>
+      {/* Desktop */}
+      <motion.div
+        className={`hidden md:block bg-[#0a0a1a] border border-[#00f0ff]/10 p-5 hud-card hover:border-[#00f0ff]/30 hover:shadow-[0_0_15px_rgba(0,240,255,0.08)] transition-all duration-400 w-5/12 ${
+          isLeft ? "ml-0 mr-auto" : "mr-0 ml-auto"
+        }`}
+        initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: index * 0.15 }}
+      >
+        <CardContent edu={edu} index={index} />
+      </motion.div>
 
-          <div className="space-y-8 md:space-y-12">
-            {educationData.map((edu, index) => (
-              <div
-                key={index}
-                className="relative flex flex-col md:flex-row"
-              >
-                {/* For mobile: simple stacked layout */}
-                <div className="md:hidden w-full backdrop-blur-md bg-indigo-900/30 border border-violet-500/20 p-4 rounded-lg shadow-md">
-                  <div className="flex items-center gap-2 mb-1">
-                    <BookOpen className="text-violet-300" size={18} />
-                    <h3 className="text-xl font-semibold text-violet-200">{edu.institute}</h3>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Calendar className="text-violet-400" size={14} />
-                    <p className="text-xs text-violet-300 font-medium">{edu.date}</p>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <BookOpen className="text-violet-400" size={14} />
-                    <p className="text-xs text-violet-300 font-medium">{edu.course}</p>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <PercentIcon className="text-violet-400" size={14} />
-                    <p className="text-xs text-violet-300 font-medium">{edu.percentage}</p>
-                  </div>
-                </div>
-
-                {/* For desktop: timeline layout */}
-                <div
-                  className={`hidden md:block backdrop-blur-md bg-indigo-900/30 border border-violet-500/20 p-4 rounded-lg shadow-md hover:shadow-violet-500/10 transition-all duration-300 w-5/12 ${index % 2 === 0 ? "ml-0 mr-auto" : "mr-0 ml-auto"
-                    }`}
-                >
-                  <div className="flex items-center gap-2 mb-1">
-                    <School className="text-violet-300" size={18} />
-                    <h3 className="text-xl font-semibold text-violet-200">{edu.institute}</h3>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Calendar className="text-violet-400" size={14} />
-                    <p className="text-xs text-violet-300 font-medium">{edu.date}</p>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <BookOpen className="text-violet-400" size={14} />
-                    <p className="text-xs text-violet-300 font-medium">{edu.course}</p>
-                  </div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <PercentIcon className="text-violet-400" size={14} />
-                    <p className="text-xs text-violet-300 font-medium">{edu.percentage}</p>
-                  </div>
-                </div>
-
-                {/* Timeline dots - only visible on desktop */}
-                <div className="hidden md:block absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="w-3 h-3 bg-violet-600 rounded-full"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-500 to-violet-500 rounded-full animate-pulse"></div>
-                  <div className="absolute -inset-1 bg-violet-400 rounded-full blur opacity-30"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Timeline dot */}
+      <div className="hidden md:flex absolute top-5 left-1/2 -translate-x-1/2 z-10 items-center justify-center">
+        <div className="w-3 h-3 bg-[#00f0ff] rounded-full shadow-[0_0_10px_rgba(0,240,255,0.6)] neon-border-pulse" />
+        <div className="absolute w-6 h-6 border border-[#00f0ff]/20 rounded-full" />
       </div>
-    </section>
+    </div>
   );
 };
+
+const CardContent = ({ edu, index }) => (
+  <div className="relative">
+    {/* HUD index label */}
+    <div className="absolute top-0 right-0 font-['JetBrains_Mono'] text-[9px] text-[#00f0ff]/30 tracking-wider">
+      NODE_{String(index + 1).padStart(2, '0')}
+    </div>
+
+    <div className="flex items-center gap-2 mb-2">
+      <School size={16} className="text-[#00f0ff]" />
+      <h3 className="text-sm font-bold font-['Orbitron'] text-[#e0e0ff] tracking-wide">{edu.institute}</h3>
+    </div>
+    <div className="flex items-center gap-2 mb-1.5">
+      <Calendar size={12} className="text-[#ff00aa]/60" />
+      <p className="font-['JetBrains_Mono'] text-[11px] text-[#8888aa]">{edu.date}</p>
+    </div>
+    <div className="flex items-center gap-2 mb-1.5">
+      <BookOpen size={12} className="text-[#00f0ff]/50" />
+      <p className="font-['JetBrains_Mono'] text-[11px] text-[#8888aa]">{edu.course}</p>
+    </div>
+    <div className="flex items-center gap-2">
+      <PercentIcon size={12} className="text-[#00ff88]/50" />
+      <p className="font-['JetBrains_Mono'] text-[11px] text-[#00ff88]/70">{edu.percentage}</p>
+    </div>
+  </div>
+);
+
+const EducationSection = () => (
+  <section className="py-24 px-4 relative overflow-hidden cyber-grid-bg" id="education">
+    <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#00f0ff]/15 to-transparent" />
+
+    <div className="max-w-3xl mx-auto relative z-10">
+      <motion.div
+        className="text-center mb-14"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold font-['Orbitron'] tracking-wider mb-3">
+          <span className="text-[#00f0ff] glow-text-pulse">EDU</span>
+          <span className="text-[#8888aa]">CATION</span>
+        </h2>
+        <div className="w-16 h-[2px] bg-gradient-to-r from-[#00f0ff] to-[#7b00ff] mx-auto shadow-[0_0_8px_rgba(0,240,255,0.4)]" />
+      </motion.div>
+
+      <div className="relative">
+        {/* Neon timeline line */}
+        <div className="absolute hidden md:block h-full top-0 left-1/2 w-[2px] -translate-x-1/2 bg-gradient-to-b from-[#00f0ff]/40 via-[#7b00ff]/30 to-[#ff00aa]/20 shadow-[0_0_6px_rgba(0,240,255,0.3)]" />
+        <div className="space-y-8 md:space-y-12">
+          {educationData.map((edu, index) => (
+            <EducationCard key={index} edu={edu} index={index} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default EducationSection;
