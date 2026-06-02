@@ -5,7 +5,7 @@ import { SiLeetcode } from 'react-icons/si';
 import DevRoom3DScene from './Robot3D';
 
 const Hero = () => {
-  const fullText = "> building modern full-stack apps with the MERN stack_";
+  const fullText = "> architecting scalable enterprise apps and robust backend services_";
   const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
@@ -64,7 +64,15 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          <motion.div className="flex justify-center md:justify-start gap-4 pt-1" variants={fadeUp}>
+          <motion.div className="flex flex-wrap justify-center md:justify-start gap-2 pt-1" variants={fadeUp}>
+            {['React.js', 'Node.js', 'TypeScript', 'SQL', 'GCP', 'REST APIs'].map((skill) => (
+              <span key={skill} className="px-2.5 py-1 border border-[#ff00aa]/20 text-[#ff00aa]/90 bg-[#ff00aa]/5 font-['JetBrains_Mono'] text-[10px] tracking-wider uppercase">
+                {skill}
+              </span>
+            ))}
+          </motion.div>
+
+          <motion.div className="flex justify-center md:justify-start gap-4 pt-4" variants={fadeUp}>
             <a
               href="https://drive.google.com/file/d/1XycseD0lzRC8-nweO0EqiPPqXp-bbzPD/view?usp=sharing"
               target="_blank"

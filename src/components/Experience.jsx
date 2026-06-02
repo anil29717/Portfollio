@@ -6,12 +6,12 @@ const experiences = [
   {
     logo: 'https://cachedigitech.com/navbar-logo.svg',
     company: 'Cache Digitech Pvt. Ltd',
-    project: 'Company Website & In-house HRMS Platform',
-    role: 'Software Developer',
+    project: 'Enterprise Applications',
+    role: 'Software Development Engineer',
     date: 'August 2025 – Present',
     location: 'Delhi',
-    description: 'Developed and deployed the company\'s official website, replacing the legacy WordPress system with a scalable full-stack architecture. Designed and built an in-house HRMS platform to manage employee data, onboarding workflows, and internal operations. Implemented RBAC, RESTful APIs for authentication and employee management, and assisted in cloud infrastructure setup including VMs and database deployment.',
-    techStack: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL', 'RBAC', 'REST APIs', 'Cloud']
+    description: 'Developed and deployed enterprise applications including HRMS, LMS (Cache Learn), PayFlow, Travel Desk, and the company website. Built scalable full-stack solutions, secure REST APIs, authentication systems, workflow automation features, and optimized database performance. Assisted with cloud deployment and infrastructure management.',
+    techStack: ['React.js', 'Node.js', 'Express.js', 'JavaScript', 'TypeScript', 'MySQL', 'SQLite', 'REST APIs', 'JWT', 'RBAC', 'GCP', 'Git']
   },
   {
     logo: '/salesqueen.jpeg',
