@@ -44,7 +44,7 @@ const Hero = () => {
         >
           <motion.div variants={fadeUp}>
             <span className="inline-block font-['JetBrains_Mono'] text-xs tracking-[0.25em] uppercase text-[#00f0ff] border border-[#00f0ff]/30 px-4 py-1.5 bg-[#00f0ff]/5">
-              // full_stack_developer
+              // software_developer
             </span>
           </motion.div>
 

@@ -6,7 +6,7 @@ import Face3DScene from "./Face3D";
 const terminalLines = [
   { prompt: true, text: 'cat about_me.txt' },
   { prompt: false, text: '' },
-  { prompt: false, text: "I'm a passionate full-stack developer skilled in the" },
+  { prompt: false, text: "I'm a passionate software developer skilled in the" },
   { prompt: false, text: 'MERN stack (MongoDB, Express, React, Node.js).' },
   { prompt: false, text: 'I enjoy building modern web apps with great UI/UX' },
   { prompt: false, text: 'and clean code. Always eager to learn and solve' },
@@ -16,7 +16,7 @@ const terminalLines = [
   { prompt: false, text: '{' },
   { prompt: false, text: '  "email": "anilkumar.gugm@gmail.com",' },
   { prompt: false, text: '  "portfolio": "anilkumarportfolio.vercel.app",' },
-  { prompt: false, text: '  "role": "Full Stack Developer"' },
+  { prompt: false, text: '  "role": "Software Developer"' },
   { prompt: false, text: '}' },
 ];
 

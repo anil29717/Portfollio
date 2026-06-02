@@ -71,10 +71,10 @@ const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-0 top-0 z-40 md:hidden"
+            className="fixed top-0 left-0 w-screen h-[100dvh] z-40 md:hidden"
           >
-            <div className="absolute inset-0 bg-black/60" onClick={() => setMenuOpen(false)} />
-            <div className="absolute right-0 top-0 h-full w-64 bg-[#0a0a1a]/95 backdrop-blur-xl border-l border-[#00f0ff]/10 p-8 pt-20">
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setMenuOpen(false)} />
+            <div className="absolute right-0 top-0 h-full w-64 bg-[#0a0a1a] border-l border-[#00f0ff]/20 p-8 pt-20 shadow-[-10px_0_30px_rgba(0,0,0,0.8)]">
               {navItems.map((item, i) => (
                 <motion.a
                   key={item}

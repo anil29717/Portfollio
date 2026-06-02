@@ -62,22 +62,40 @@ const projects = [
     source: "https://github.com/anil29717/PiTutor",
   },
   {
-    name: "TaskMate",
+    name: "SKEDUTECH",
     description:
-      "Task management system using React Vite, Node.js, and MongoDB to organize tasks with priorities, deadlines, and collaboration features for individuals and teams.",
-    technologies: ["React Vite", "Node.js", "MongoDB"],
-    image: "/taskmate.PNG",
-    live: "https://task-mate-gray.vercel.app/",
-    source: "https://github.com/anil29717/TaskMate",
+      "Comprehensive EdTech platform for coaching institutes enabling franchise management, student onboarding, content delivery, examination workflows, and online payments.",
+    technologies: ["React.js", "Node.js", "Express.js", "MySQL", "REST APIs", "Payment Gateway", "JWT"],
+    image: "/hrms.jpg",
+    live: "",
+    source: "",
   },
   {
-    name: "Volunteer & Donor",
+    name: "InstiFlow",
     description:
-      "NGO platform built with React, Node.js, MongoDB, and Cloudinary to connect volunteers, manage donations, and streamline contribution tracking.",
-    technologies: ["ReactJs", "CSS", "MongoDb", "Nodejs", "Cloudinary"],
-    image: "/volunteer.PNG",
-    live: "https://dharmakarm-foundation.vercel.app/",
-    source: "https://github.com/anil29717/Dharmakarm-foundation",
+      "Complete institute management platform digitizing academic operations, streamlining fee management, student records, examinations, and communication.",
+    technologies: ["React.js", "Node.js", "Express.js", "MySQL", "REST APIs", "Auth"],
+    image: "/instiflow.png",
+    live: "",
+    source: "",
+  },
+  {
+    name: "Cache Learn",
+    description:
+      "Enterprise Learning Management System (LMS) for organizational training, knowledge sharing, employee onboarding, and progress tracking with RBAC.",
+    technologies: ["React.js", "Node.js", "Express.js", "MySQL", "REST APIs", "RBAC"],
+    image: "/cachelearn.png",
+    live: "",
+    source: "",
+  },
+  {
+    name: "HR & Performance Management",
+    description:
+      "Enterprise-grade HR system managing employee lifecycle, departments, projects, task contributions, performance evaluations, and organizational productivity.",
+    technologies: ["React.js", "Node.js", "Express.js", "MySQL", "SQLite", "REST APIs", "JWT", "RBAC"],
+    image: "/hrms.jpg",
+    live: "",
+    source: "",
   },
 ];
 

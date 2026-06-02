@@ -7,7 +7,7 @@ const experiences = [
     logo: 'https://cachedigitech.com/navbar-logo.svg',
     company: 'Cache Digitech Pvt. Ltd',
     project: 'Company Website & In-house HRMS Platform',
-    role: 'Web Developer / IT Cloud Trainee',
+    role: 'Software Developer',
     date: 'August 2025 – Present',
     location: 'Delhi',
     description: 'Developed and deployed the company\'s official website, replacing the legacy WordPress system with a scalable full-stack architecture. Designed and built an in-house HRMS platform to manage employee data, onboarding workflows, and internal operations. Implemented RBAC, RESTful APIs for authentication and employee management, and assisted in cloud infrastructure setup including VMs and database deployment.',
